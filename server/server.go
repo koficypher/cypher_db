@@ -152,5 +152,7 @@ func (s *Server) Stop() {
 	fmt.Println("Stopping the DB server")
 	close(s.quit)
 	<-s.exited
+	fmt.Println("Saving memory records to DB")
+	s.db.save()
 	fmt.Println("DB server successfully stopped")
 }
